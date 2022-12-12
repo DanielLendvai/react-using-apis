@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [beers, setBeers] = useState("")
+
+  useEffect(() => {
+    fetch("https://api.punkapi.com/v2/beers?per_page=10")
+    .then((res) => res.json())
+    .then((data) => {
+      setBeers(data); //fetch adatokat egy state-be mentjük
+    })
+  }, [])
+
+console.log(beers)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
