@@ -1,14 +1,11 @@
 import Beer from "./Beer";
 
-function Beers({beers, filter}) {
+function Beers({beers}) {
     
 
     return (
         <div className="beers">
-            {beers
-                .filter((beer) =>
-                    beer.name.toLowerCase().includes(filter.toLowerCase())
-                )
+            {beers               
                 .map((beer, index) => (
                     <Beer key={index} beerData={beer} />
                 ))}

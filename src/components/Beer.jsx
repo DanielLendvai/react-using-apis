@@ -5,11 +5,7 @@ function Beer({ beerData }) {
         <div>
             <p className="beer-name">{beerData.name}</p>
             <p className="beer-tagline">{beerData.tagline}</p>
-            <p>{beerData.abv} %</p>
-            <img
-            style={{width:"200px", height:"300px"}} 
-            src={beerData.image_url} alt="alt" />
-            
+            <p>{beerData.abv} %</p>   
         </div>
     );
 }
