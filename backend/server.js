@@ -22,4 +22,9 @@ app.get("/beers", (req,res) => {
     res.sendFile(path.join(`${__dirname}/data/beers.json`))
 })
 
+app.post("/beers/add", (req,res) => {
+  console.log(req.body)
+  res.status(200).json({"res":"ok"})
+})
+
 app.listen(9000,()=> {console.log("http://127.0.0.1:9000")})

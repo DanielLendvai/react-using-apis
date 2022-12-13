@@ -19,4 +19,9 @@ html {
 .beers .beer-tagline {
   font-size: 12px;
   max-width: 200px;
+}
+
+input {
+  margin-bottom: 20px;
+  margin-right: 10px;
 }/*# sourceMappingURL=App.css.map */

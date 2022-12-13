@@ -11,15 +11,23 @@ function App() {
 
     const fetchBeers = () => {
         fetch("/beers")
-        .then((res) => res.json())
-        .then((data) => setBeers(data));
+            .then((res) => res.json())
+            .then((data) => setBeers(data));
     };
-    
+
     const addBeer = () => {
-        console.log(name)
-        console.log(tagline)
-        console.log(abv)
-    }
+        fetch("/beers/add", {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                tagline: tagline,
+                abv: abv,
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
+        .then((res)=> res.json())
+        .then((data)=> {console.log(data)})
+    };
 
     useEffect(() => fetchBeers(), []);
 
@@ -48,11 +56,19 @@ function App() {
                     <input
                         type="number"
                         placeholder="abv"
+                        value={abv}
                         onChange={(event) => {
                             setAbv(event.target.value);
                         }}
                     />
-                    <button onClick={() => {addBeer()}}>Add</button>
+
+                    <button
+                        onClick={() => {
+                            addBeer();
+                        }}
+                    >
+                        Add
+                    </button>
                     <Beers beers={beers} />
                 </>
             ) : (
