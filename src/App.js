@@ -29,10 +29,18 @@ function App() {
 
     useEffect(() => {
         sortByName === "asc"
+          ? setBeers([...beers].sort((a, b) => a.name > b.name ? 1 : -1)
+            )
+          : setBeers([...beers].sort((a, b) => a.name < b.name ? 1 : -1)
+            );
+      }, [sortByName])
+
+    /* useEffect(() => {
+        sortByName === "asc"
             ? // sort by name
               setBeers([...beers].sort((a, b) => b.name > a.name))
             : setBeers([...beers].sort((a, b) => a.name > b.name));
-    }, [sortByName]);
+    }, [sortByName]); */
 
     console.log(beers);
 
